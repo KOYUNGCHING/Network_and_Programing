@@ -1,0 +1,146 @@
+body {
+    margin: 0;
+    font-family: "DFKai-SB", "BiauKai", "Microsoft JhengHei", sans-serif;
+    background: linear-gradient(135deg, #fff5f7, #e0f7fa);
+    color: #444;
+}
+
+
+h1 {
+    text-align: center;
+    margin: 1.5rem 0;
+    font-size: 2rem;
+    color: #ff6f91;
+    text-shadow: 2px 2px #ffd1dc;
+}
+
+.navbar {
+    background: #ffb6c1;
+    padding: 0.5rem 0;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.brand {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px #ff6f91;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 0.5rem;
+}
+
+.nav-menu>li {
+    position: relative;
+}
+
+.nav-menu>li>a {
+    display: block;
+    padding: 0.6rem 1rem;
+    color: white;
+    border-radius: 20px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.nav-menu>li>a:hover {
+    background: #ff6f91;
+    transform: scale(1.1);
+}
+
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #ffe4e1;
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.dropdown li a {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #ff6f91;
+}
+
+.dropdown li a:hover {
+    background: #ffd1dc;
+    border-radius: 6px;
+}
+
+.has-dropdown:hover .dropdown {
+    display: block;
+}
+
+
+table.w100 {
+    width: 90%;
+    margin: 1.5rem auto;
+    border-collapse: separate;
+    border-spacing: 20px;
+}
+
+table.w100 td {
+    background: white;
+    border-radius: 20px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+table.w100 td:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+table.w100 img {
+    border-radius: 15px;
+    margin-bottom: 0.5rem;
+}
+
+
+table.w100 h3 {
+    margin: 0.5rem 0;
+    color: #ff6f91;
+}
+
+table.w100 p {
+    margin: 0;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.video-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    aspect-ratio: 16/9;
+    margin: 0 auto;
+}
+
+.video-wrap iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
