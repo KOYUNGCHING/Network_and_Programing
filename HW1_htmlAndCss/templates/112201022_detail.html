@@ -39,4 +39,43 @@
 
         </tbody>
     </table>
+
+    <h2>回饋表單</h2>
+    <form action="112201022_index.html" method="get">
+
+        <label for="name">姓名：</label>
+        <input type="text" id="name" name="name" placeholder="請輸入姓名">
+        <br><br>
+
+        <label for="favorite">最喜歡的角色：</label>
+        <select id="favorite" name="favorite">
+            <option value="harry">哈利</option>
+            <option value="ron">榮恩</option>
+            <option value="hermione">妙麗</option>
+            <option value="voldemort">佛地魔</option>
+        </select>
+        <br><br>
+
+        <p>是否看過所有八部電影？</p>
+        <input type="radio" id="yes" name="seen" value="yes">
+        <label for="yes">是</label>
+        <input type="radio" id="no" name="seen" value="no">
+        <label for="no">否</label>
+        <br><br>
+
+        <p>你喜歡的元素：</p>
+        <input type="checkbox" id="magic" name="element" value="magic">
+        <label for="magic">魔法</label>
+        <input type="checkbox" id="friendship" name="element" value="friendship">
+        <label for="friendship">友情</label>
+        <input type="checkbox" id="adventure" name="element" value="adventure">
+        <label for="adventure">冒險</label>
+        <br><br>
+
+        <label for="feedback">留言建議：</label><br>
+        <textarea id="feedback" name="feedback" rows="4" cols="40"></textarea>
+        <br><br>
+
+        <input type="submit" value="送出">
+    </form>
 </body>
