@@ -1,12 +1,26 @@
-table {
-    border-collapse: separate;
+#cart {
     width: 100%;
-    margin: 20px auto;
+    margin: 16px auto;
+    border-collapse: separate;
+    table-layout: fixed;
 }
 
-th,
-td {
-    border: 1px solid #aaa;
-    padding: 20px;
+#cart th,
+#cart td {
+    border: 1px solid #ccc;
+    padding: 8px 10px;
     text-align: center;
+    vertical-align: middle;
+}
+
+#cart thead th {
+    background: #f7f7f7;
+    font-weight: 600;
+}
+
+#cart td img {
+    width: 72px;
+    height: auto;
+    display: block;
+    margin: 0 auto 6px;
 }
