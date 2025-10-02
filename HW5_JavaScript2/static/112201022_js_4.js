@@ -19,3 +19,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const checkAll = $('#checkAll'), items = $$('.item');
     checkAll.addEventListener('change', () => { items.forEach(i => i.checked = checkAll.checked); setTot(); });
     items.forEach(i => i.addEventListener('change', () => { checkAll.checked = [...items].every(x => x.checked); setTot(); }));
+
+    cart.addEventListener('click', e => {
+        const b = e.target.closest('.plus,.minus'); if (!b) return;
+        const r = b.closest('tr'), s = stock(r), q = qtyEl(r);
+        let v = +q.value || (s ? 1 : 0);
+        v += b.classList.contains('plus') ? 1 : -1;
+        q.value = s ? Math.min(s, Math.max(1, v)) : 0;
+        setSub(r); setTot();
+    });
+});
