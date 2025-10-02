@@ -29,7 +29,8 @@ function checkGauss() {
 
     // appendChild
     const rec = document.createElement("div");
-    rec.textContent = `猜了 ${attempts} 次，耗時 ${elapsed} 秒， ${new Date().toLocaleTimeString()}`;
+    const idx = his.childElementCount + 1;   // 目前已有幾筆 + 1
+    rec.textContent = `${idx}. 猜了 ${attempts} 次，耗時 ${elapsed} 秒，${new Date().toLocaleTimeString()}`;
     his.appendChild(rec);
     // 重置
     answer = rand();
