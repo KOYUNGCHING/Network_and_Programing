@@ -15,7 +15,7 @@ function checkGauss() {
         startTime = Date.now();
         timerId = setInterval(() => {
             const t = (Date.now() - startTime) / 1000;
-            tim.textContent = `用時：${t.toFixed(2)} 秒`;
+            tim.textContent = `時間：${t.toFixed(2)} 秒`;
         }, 100);
     }
     attempts++;
@@ -24,14 +24,17 @@ function checkGauss() {
     const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
     clearInterval(timerId);
     timerId = null;
-    {
-        let t = ((Date.now() - startTime) / 1000).toFixed(2);
-        msg.textContent = `猜中了！共猜了 ${attempts} 次，花了 ${t} 秒`;
-        his.innerHTML += `<div>猜了 ${attempts} 次，耗時 ${t} 秒， ${new Date().toLocaleTimeString()}</div>`;
-        // reset
-        answer = Math.floor(Math.random() * 101);
-        attempts = 0;
-        startTime = null;
-        input.value = "";
-    }
+
+    alert(`猜中了！共猜了 ${attempts} 次，花了 ${elapsed} 秒`);
+
+    // appendChild
+    const rec = document.createElement("div");
+    rec.textContent = `猜了 ${attempts} 次，耗時 ${elapsed} 秒， ${new Date().toLocaleTimeString()}`;
+    his.appendChild(rec);
+    // 重置
+    answer = rand();
+    attempts = 0;
+    startTime = null;
+    tim.textContent = "時間：0.00 秒";
+    input.value = "";
 }
