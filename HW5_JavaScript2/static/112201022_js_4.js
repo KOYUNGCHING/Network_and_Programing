@@ -28,4 +28,41 @@ document.addEventListener('DOMContentLoaded', () => {
         q.value = s ? Math.min(s, Math.max(1, v)) : 0;
         setSub(r); setTot();
     });
+
+    cart.addEventListener('blur', e => {
+        if (!e.target.classList.contains('qty')) return;
+        const r = e.target.closest('tr'), s = stock(r);
+        let v = Math.floor(+e.target.value);
+        e.target.value = s ? Math.min(s, Math.max(1, v || 1)) : 0;
+        setSub(r); setTot();
+    }, true);
+
+    let checkout = $('#checkout');
+    if (!checkout) {
+        checkout = Object.assign(document.createElement('button'), { id: 'checkout', textContent: '結帳' });
+        document.body.appendChild(checkout);
+    }
+
+    checkout.addEventListener('click', () => {
+        const total = num(tcell.textContent); if (!total) return;
+        const lines = [];
+
+        rows().forEach(r => {
+            if (!r.querySelector('.item').checked) return;
+            const name = r.cells[1].innerText.trim();
+            const q = +qtyEl(r).value || 0;
+            const sub = r.querySelector('.subtotal').textContent;
+            lines.push(`${name} × ${q} = ${sub}`);
+
+            const left = Math.max(0, stock(r) - q);
+            r.cells[2].textContent = left;
+            qtyEl(r).value = left ? 1 : 0;
+            r.querySelector('.item').checked = false;
+            setSub(r);
+        });
+
+        alert(lines.concat('', `Total = ${money(total)}`).join('\n'));
+        checkAll.checked = false;
+        setTot();
+    });
 });
