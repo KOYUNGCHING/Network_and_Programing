@@ -3,7 +3,7 @@ let startTime = null
 
 function checkGauss() {
     const input = document.getElementById("userInput");
-    const msg = document.getElementById("messager");
+    const msg = document.getElementById("message");
     const his = document.getElementById("history")
 
     if (input === "") return alert("請先輸入數字！");
@@ -18,5 +18,10 @@ function checkGauss() {
         let t = ((Date.now() - startTime) / 1000).toFixed(2);
         msg.textContent = `答對了！共 ${attempts} 次，用時 ${t} 秒`;
         his.innerHTML += `<div>第 ${attempts} 次答對，耗時 ${t} 秒，時間 ${new Date().toLocaleTimeString()}</div>`;
+        // reset
+        answer = Math.floor(Math.random() * 101);
+        attempts = 0;
+        startTime = null;
+        input.value = "";
     }
 }
