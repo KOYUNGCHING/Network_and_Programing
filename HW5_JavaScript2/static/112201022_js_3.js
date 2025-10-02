@@ -15,9 +15,8 @@ function checkGauss() {
     if (g > answer) alert("太大了！再試一次～ 數字介於 0 ~ " + g);
     else if (g < answer) alert("太小了！再試一次～ 數字介於 " + g + " ~ 100");
     else {
-        alert("答對了！你總共猜了 " + attempts + " 次！");
-        attempts = 0;
-        answer = Math.floor(Math.random() * 101);
-        document.getElementById("userInput").value = "";
+        let t = ((Date.now() - startTime) / 1000).toFixed(2);
+        msg.textContent = `答對了！共 ${attempts} 次，用時 ${t} 秒`;
+        his.innerHTML += `<div>第 ${attempts} 次答對，耗時 ${t} 秒，時間 ${new Date().toLocaleTimeString()}</div>`;
     }
 }
