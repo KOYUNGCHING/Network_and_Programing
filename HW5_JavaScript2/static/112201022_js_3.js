@@ -1,10 +1,11 @@
 let answer = Math.floor(Math.random() * 101), attempts = 0;
-let startTime = null
+let startTime = null, timerId = null;
 
 function checkGauss() {
     const input = document.getElementById("userInput");
     const msg = document.getElementById("message");
-    const his = document.getElementById("history")
+    const tim = document.getElementById("timer");
+    const his = document.getElementById("history");
 
     if (input === "") return alert("請先輸入數字！");
     let g = +input.value;
