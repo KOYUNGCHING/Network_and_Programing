@@ -21,7 +21,9 @@ function checkGauss() {
     attempts++;
     if (g > answer) { msg.textContent = `太大了！再試一次～`; return; }
     if (g < answer) { msg.textContent = `太小了！再試一次～`; return; }
-
+    const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
+    clearInterval(timerId);
+    timerId = null;
     {
         let t = ((Date.now() - startTime) / 1000).toFixed(2);
         msg.textContent = `猜中了！共猜了 ${attempts} 次，花了 ${t} 秒`;
