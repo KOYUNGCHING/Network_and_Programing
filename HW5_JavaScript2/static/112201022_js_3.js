@@ -1,4 +1,4 @@
-let answer = Math.floor(Math.random() * 101), attempts = 0;
+let answer = rand(), attempts = 0;
 let startTime = null, timerId = null;
 
 function checkGauss() {
@@ -39,3 +39,4 @@ function checkGauss() {
     tim.textContent = "時間：0.00 秒";
     input.value = "";
 }
+function rand() { return Math.floor(Math.random() * 101); }
