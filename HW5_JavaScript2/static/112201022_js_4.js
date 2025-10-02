@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     checkout.addEventListener('click', () => {
         const total = num(tcell.textContent); if (!total) return;
-        const lines = [];
+        const lines = ['感謝您的購買，您購買的產品如下：', ''];
 
         rows().forEach(r => {
             if (!r.querySelector('.item').checked) return;
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
             setSub(r);
         });
 
-        alert(lines.concat('', `Total = ${money(total)}`).join('\n'));
+        alert(lines.concat('', `總計 = ${money(total)}`).join('\n'));
         checkAll.checked = false;
         setTot();
     });
