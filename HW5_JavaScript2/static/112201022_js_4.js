@@ -13,3 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const setTot = () => tcell.textContent = money(rows().reduce((s, r) =>
         s + (r.querySelector('.item').checked ? num(r.querySelector('.subtotal').textContent) : 0), 0));
 
+    rows().forEach(r => { if (!stock(r)) qtyEl(r).value = 0; setSub(r); });
+    setTot();
+
+    const checkAll = $('#checkAll'), items = $$('.item');
+    checkAll.addEventListener('change', () => { items.forEach(i => i.checked = checkAll.checked); setTot(); });
+    items.forEach(i => i.addEventListener('change', () => { checkAll.checked = [...items].every(x => x.checked); setTot(); }));
