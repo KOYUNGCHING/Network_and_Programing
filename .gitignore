@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
+
+# venv（如果你有）
+.venv/
+venv/
+
+# SQLite journal（可選）
+*.sqlite3-journal
+*.db-journal
