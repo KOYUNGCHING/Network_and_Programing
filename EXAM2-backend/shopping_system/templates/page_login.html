@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>登入系統</title>
+</head>
+<body>
+  <h2>使用者登入</h2>
+
+  <!-- 直接 POST 到 /page_login（你的後端已有對應路由） -->
+  <form id="loginForm" action="{{ url_for('page_login') }}" method="POST" autocomplete="on">
+    <label for="username">帳號:</label>
+    <input type="text" id="username" name="username" required>
+    <br>
+
+    <label for="password">密碼:</label>
+    <input type="password" id="password" name="password" required>
+    <br><br>
+
+    <input type="submit" value="登入">
+  </form>
+
+  <div>
+    <p>沒有帳號？<a href="{{ url_for('page_register') }}">註冊</a></p>
+  </div>
+</body>
+</html>

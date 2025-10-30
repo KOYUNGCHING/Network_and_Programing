@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>註冊系統</title>
+</head>
+<body>
+  <h2>註冊帳號</h2>
+
+  <!-- 關閉瀏覽器內建驗證，讓表單送到後端 -->
+  <form action="{{ url_for('page_register') }}" method="POST" novalidate autocomplete="on">
+    <label for="username">帳號:</label>
+    <input type="text" id="username" name="username" required>
+    <br><br>
+
+    <label for="password">密碼:</label>
+    <input type="password" id="password" name="password" required>
+    <small>（至少 8 碼，需含大小寫英文字母）</small>
+    <br><br>
+
+    <label for="email">信箱:</label>
+    <input type="text" id="email" name="email" required placeholder="example@gmail.com">
+    <br><br>
+
+    <button type="submit">註冊</button>
+  </form>
+
+  <p><a href="{{ url_for('page_login') }}">回到登入</a></p>
+
+  <script>
+    // 前端基本檢查，只負責跳 alert，實際驗證仍由後端確認
+    document.querySelector('form').addEventListener('submit', function (e) {
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value;
+      const email = document.getElementById('email').value.trim();
+
+      // 密碼規則
+      const violations = [];
+      if (password.length < 8) violations.push('密碼需至少 8 個字元');
+      if (!/[a-z]/.test(password)) violations.push('需包含小寫英文字母');
+      if (!/[A-Z]/.test(password)) violations.push('需包含大寫英文字母');
+
+      // Email 格式檢查
+      if (!/^[^@\s]+@gmail\.com$/.test(email)) {
+        alert('Email 格式不符，請重新輸入（需為 XXX@gmail.com）');
+        e.preventDefault();
+        return;
+      }
+
+      // 有違反規則 → alert 顯示
+      if (violations.length > 0) {
+        alert('密碼不符合規則：\n- ' + violations.join('\n- ') + '\n請重新輸入');
+        e.preventDefault(); // 阻止送出
+        return;
+      }
+
+    });
+  </script>
+</body>
+</html>

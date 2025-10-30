@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>選物介面</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <!-- 導行列：顯示目前登入使用者 -->
+<div class="quixnav">
+  <div class="quixnav-scroll">
+    <div>👤 使用者：<strong id="who" data-username="{{ session.get('username', '訪客') }}">
+      {{ session.get('username', '訪客') }}
+    </strong></div>
+    <a href="{{ url_for('logout') }}" id="logout-link">登出</a>
+  </div>
+</div>
+    <br>
+    <div id="filter">
+        <h3>條件篩選</h3>
+        <input placeholder="最大金額" id="max_price">
+        <input placeholder="最小金額" id="min_price">
+
+        <select id="gender">
+          <option value="All">All</option>
+          <option value="Male">男裝</option>
+          <option value="Female">女裝</option>
+        </select>
+
+        <div>
+          <input type="checkbox"id="shirts">
+          <label for="shirts">上衣</label>
+        </div>
+        <div>
+          <input type="checkbox"id="pants">
+          <label for="pants">褲/裙子</label>
+        </div>
+        <div>
+          <input type="checkbox"id="shoes">
+          <label for="shoes">鞋子</label>
+        </div>
+        <div>
+          <input type="checkbox"id="cap">
+          <label for="cap">帽子</label>
+        </div>
+        <button onclick="apply_filter(products)">篩選</button>
+      </div>
+      </div>
+  </div>
+      <div id="products">
+        <table>
+          <thead>
+            <tr>
+              <th>Selection</th>
+              <th>Image</th>
+              <th>Product</th>
+              <th>Price</th>
+              <th>Gender</th>
+              <th>Category</th>
+              <th>Number</th>
+              <th>Total Price</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+    <script src="../static/script.js"></script>
+</body>
+</html>
